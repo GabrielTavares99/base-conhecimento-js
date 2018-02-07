@@ -13,14 +13,21 @@ for (let i = 0; i < pacientes.length; i++){
     let imc = paciente.querySelector(".info-imc");
 
     let resultadoImc = peso / (altura*altura);
+    resultadoImc = resultadoImc.toFixed(2);
 
-    if (peso <= 0 || peso > 500)
+    if (peso <= 0 || peso > 500) {
         resultadoImc = "Peso inválido";
+        paciente.classList.add("paciente-invalido");
+        // paciente.style.backgroundColor = "lightcoral"
+    }
 
-    if (altura <= 0 || altura > 3)
+    if (altura <= 0 || altura > 3) {
         resultadoImc = "Altura inválida";
+        // paciente.style.backgroundColor = "lightcoral"
+        paciente.classList.add("paciente-invalido");
+    }
 
-    imc.textContent = resultadoImc.toFixed(2);
+    imc.textContent = resultadoImc;
 
 }
 
