@@ -2,19 +2,26 @@
 let titulo = document.querySelector(".titulo");
 titulo.textContent = "you was hacked";
 
-let paciente = document.querySelector("#paciente1");
+let pacientes = document.querySelectorAll(".paciente");
 
-let peso = paciente.querySelector(".info-peso").textContent;
-let altura = paciente.querySelector(".info-altura").textContent;
-let imc = paciente.querySelector(".info-imc");
+for (let i = 0; i < pacientes.length; i++){
 
-let resultadoImc = peso / (altura*altura);
+    let paciente = pacientes[i];
 
-if (peso <= 0 || peso > 500)
-    resultadoImc = "Peso inválido";
+    let peso = paciente.querySelector(".info-peso").textContent;
+    let altura = paciente.querySelector(".info-altura").textContent;
+    let imc = paciente.querySelector(".info-imc");
 
-if (altura <= 0 || altura > 3)
-    resultadoImc = "Altura inválida";
+    let resultadoImc = peso / (altura*altura);
+
+    if (peso <= 0 || peso > 500)
+        resultadoImc = "Peso inválido";
+
+    if (altura <= 0 || altura > 3)
+        resultadoImc = "Altura inválida";
+
+    imc.textContent = resultadoImc.toFixed(2);
+
+}
 
 
-imc.textContent = resultadoImc;
